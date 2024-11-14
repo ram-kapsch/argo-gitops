@@ -22,17 +22,19 @@ service:
   port: 3000
 
 ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  className: "external-nginx"
+  annotations:
+    cert-manager.io/issuer: "caissuer"
   hosts:
-    - host: chart-example.local
+    - host: node.platform.kapsch-dev.net
       paths:
         - path: /
-          pathType: ImplementationSpecific
-  tls: []
+          pathType: Prefix
+  tls:
+  - hosts:
+      - node.platform.kapsch-dev.net
+    secretName: root-secret
 
 livenessProbe:
   httpGet:
