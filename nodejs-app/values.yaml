@@ -4,7 +4,7 @@ externalSecret:
   create: true
   secretName: app-config #Your secret name in k8s
   keyNameInSecret: app-config.txt #Name of the key in k8s secret
-  secretNameInAzurekv: test-key # Secret name in Azure keyvault
+  secretNameInAzurekv: node-key # Secret name in Azure keyvault
 image:
   repository: ktcplatformregistry.azurecr.io/nodejs-app
   pullPolicy: IfNotPresent
