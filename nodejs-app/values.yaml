@@ -24,10 +24,11 @@ service:
 ingress:
   enabled: true
   className: "external-nginx"
-  annotations: 
-    cert-manager.io/issuer: caissuer
-  host: node.platform.kapsch-dev.net
-  tls: []
+  tls:
+  - hosts:
+      - node.platform.kapsch-dev.net
+    secretName: root-secret 
+  
 
 livenessProbe:
   httpGet:
