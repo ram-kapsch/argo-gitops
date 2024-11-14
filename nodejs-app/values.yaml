@@ -26,11 +26,7 @@ ingress:
   className: "external-nginx"
   annotations: 
     cert-manager.io/issuer: caissuer
-  hosts:
-    - host: node.platform.kapsch-dev.net
-      paths:
-        - path: /
-          pathType: Prefix
+  host: node.platform.kapsch-dev.net
   tls: []
 
 livenessProbe:
